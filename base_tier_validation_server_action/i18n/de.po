@@ -6,65 +6,67 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-06 08:46+0000\n"
+"Last-Translator: intero-chd <c.dominiak@intero-technologies.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model.fields,field_description:base_tier_validation_server_action.field_tier_definition__auto_validate
 msgid "Auto Validate"
-msgstr ""
+msgstr "Automatische Überprüfung"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model.fields,field_description:base_tier_validation_server_action.field_tier_definition__auto_validate_domain
 msgid "Auto Validate Domain"
-msgstr ""
+msgstr "Automatische Validierung Domain"
 
 #. module: base_tier_validation_server_action
 #: model:ir.actions.server,name:base_tier_validation_server_action.ir_cron_auto_tier_validation_ir_actions_server
 msgid "Automatic Tier Validation"
-msgstr ""
+msgstr "Automatische Überprüfung der Stufe"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model.fields,field_description:base_tier_validation_server_action.field_tier_definition__display_name
 #: model:ir.model.fields,field_description:base_tier_validation_server_action.field_tier_validation__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigename"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model.fields,field_description:base_tier_validation_server_action.field_tier_definition__id
 #: model:ir.model.fields,field_description:base_tier_validation_server_action.field_tier_validation__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model.fields,field_description:base_tier_validation_server_action.field_tier_definition__server_action_id
 msgid "Post Approve Action"
-msgstr ""
+msgstr "Maßnahme nach der Genehmigung"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model.fields,field_description:base_tier_validation_server_action.field_tier_definition__rejected_server_action_id
 msgid "Post Reject Action"
-msgstr ""
+msgstr "Maßnahme nach der Ablehnung"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model.fields,help:base_tier_validation_server_action.field_tier_definition__server_action_id
 msgid "Server action triggered as soon as this step is approved"
-msgstr ""
+msgstr "Sobald dieser Schritt genehmigt wird, wird eine Serveraktion ausgelöst"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model.fields,help:base_tier_validation_server_action.field_tier_definition__rejected_server_action_id
 msgid "Server action triggered as soon as this step is rejected"
-msgstr ""
+msgstr "Sobald dieser Schritt abgelehnt wird, wird eine Serveraktion ausgelöst"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model,name:base_tier_validation_server_action.model_tier_definition
 msgid "Tier Definition"
-msgstr ""
+msgstr "Stufendefinition"
 
 #. module: base_tier_validation_server_action
 #: model:ir.model,name:base_tier_validation_server_action.model_tier_validation
@@ -79,6 +81,14 @@ msgid ""
 "- If 1 user matched as reviewer, use the user to validate\n"
 "- If > 1 user matched as reviewer, do not auto validate"
 msgstr ""
+"Verwenden Sie eine geplante Aktion, um automatisch zu prüfen, ob die "
+"Bedingung erfüllt ist.\n"
+"- Wenn kein Benutzer angegeben wurde, verwenden Sie den Systembenutzer der "
+"geplanten Aktion zur Überprüfung\n"
+"- Wenn ein Benutzer als Genehmiger gefunden wurde, verwenden Sie diesen "
+"Benutzer zur Überprüfung\n"
+"- Wenn mehr als ein Benutzer als Genehmiger gefunden wurde, führen Sie keine "
+"automatische Überprüfung durch"
 
 #. module: base_tier_validation_server_action
 #: model_terms:ir.ui.view,arch_db:base_tier_validation_server_action.tier_definition_view_form
