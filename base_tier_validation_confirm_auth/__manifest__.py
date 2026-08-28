@@ -13,5 +13,5 @@
         "views/tier_definition_view.xml",
     ],
     "application": False,
-    "installable": True,
+    "installable": False,
 }

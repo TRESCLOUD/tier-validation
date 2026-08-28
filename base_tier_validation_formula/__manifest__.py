@@ -14,4 +14,5 @@
     "depends": ["base_tier_validation"],
     "data": ["views/tier_definition_view.xml"],
     "demo": [],
+    "installable": False,
 }

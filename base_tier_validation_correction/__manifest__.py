@@ -21,5 +21,5 @@
     "development_status": "Alpha",
     "maintainers": ["kittiu"],
     "application": False,
-    "installable": True,
+    "installable": False,
 }

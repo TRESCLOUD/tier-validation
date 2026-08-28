@@ -10,7 +10,7 @@
     "author": "PESOL, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "depends": ["account", "base_tier_validation"],
     "data": ["views/account_move_view.xml"],
 }

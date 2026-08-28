@@ -10,7 +10,7 @@
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "depends": ["purchase_request", "base_tier_validation"],
     "data": [
         "views/purchase_request_view.xml",

@@ -19,7 +19,7 @@
     "development_status": "Alpha",
     "maintainers": ["kittiu"],
     "application": False,
-    "installable": True,
+    "installable": False,
     "assets": {
         "web.assets_backend": [
             "base_tier_validation_forward/static/src/xml/tier_review_template.xml",
