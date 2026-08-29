@@ -11,7 +11,7 @@
             <button>
                 <i
                     class="oi oi-lg"
-                    data-icon="pencil_square"
+                    data-icon="edit_square"
                     role="img"
                     aria-label="Reviews"
                 />
