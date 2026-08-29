@@ -28,7 +28,7 @@
                             name="%(action_open_state_products)d"
                             type="action"
                             class="oe_stat_button"
-                            icon="fa-cubes"
+                            icon="inventory_2"
                         >
                             <field
                                 name="products_count"
@@ -85,7 +85,7 @@
                                     name="%(product_state.action_open_state_products)d"
                                     type="action"
                                 >
-                                    <t t-esc="record.products_count.value" /> Products
+                                    <t t-out="record.products_count.value" /> Products
                                 </a>
                             </div>
                         </main>
