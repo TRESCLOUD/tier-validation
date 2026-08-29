@@ -166,7 +166,9 @@ class TierValidation(models.AbstractModel):
             & Domain("reviewer_ids", operator, value)
             & Domain("can_review", "=", True)
         )
-        return Domain("id", model_operator, reviews_query.subselect("DISTINCT res_id"))
+        return Domain(
+            "id", model_operator, reviews_query.subselect(SQL("DISTINCT res_id"))
+        )
 
     def _get_to_validate_message_name(self):
         return self._description
@@ -185,7 +187,7 @@ class TierValidation(models.AbstractModel):
         (defensive: e.g. the ``waiting`` edge state, or downstream code
         that calls this on a fresh record).
         """
-        icon = '<i class="fa fa-lg fa-info-circle"></i>'
+        icon = '<i class="oi oi-lg" data-icon="info"></i>'
         pending = self.review_ids.filtered(lambda r: r.status == "pending")[:1]
         if pending and pending.todo_by:
             return self.env._(
@@ -200,13 +202,13 @@ class TierValidation(models.AbstractModel):
         )
 
     def _get_validated_message(self):
-        msg = f"""<i class="fa fa-thumbs-up"></i> {
+        msg = f"""<i class="oi" data-icon="thumb_up"></i> {
             self.env._("Operation has been <b>validated</b>!")
         }"""
         return self.validation_status == "validated" and msg or ""
 
     def _get_rejected_message(self):
-        msg = f"""<i class="fa fa-thumbs-down"></i> {
+        msg = f"""<i class="oi" data-icon="thumb_down"></i> {
             self.env._("Operation has been <b>rejected</b>.")
         }"""
         return self.validation_status == "rejected" and msg or ""

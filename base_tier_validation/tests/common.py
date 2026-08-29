@@ -9,6 +9,12 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class CommonTierValidation(BaseCommon):
+    # These tests create tier.definition/res.groups records and read
+    # ir.model.fields directly through the implicit test env (without
+    # with_user()), so the test user needs unrestricted access rather
+    # than BaseCommon's default of only base.group_user.
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -159,14 +165,12 @@ class CommonTierValidation(BaseCommon):
         )
         for model in models:
             # Access record:
-            self.env["ir.model.access"].create(
+            self.env["ir.access"].create(
                 {
                     "name": f"access {model.name}",
                     "model_id": model.id,
-                    "perm_read": 1,
-                    "perm_write": 1,
-                    "perm_create": 1,
-                    "perm_unlink": 1,
+                    "group_id": self.env.ref("base.group_user").id,
+                    "operation": "crud",
                 }
             )
 
