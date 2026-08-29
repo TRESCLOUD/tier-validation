@@ -3,7 +3,7 @@
 {
     "name": "Base Tier Validation",
     "summary": "Implement a validation process based on tiers.",
-    "version": "19.0.1.2.1",
+    "version": "1.0",
     "development_status": "Mature",
     "maintainers": ["LoisRForgeFlow"],
     "category": "Tools",
@@ -11,11 +11,11 @@
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
-    "installable": False,
+    "installable": True,
     "depends": ["mail"],
     "data": [
         # Security
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/tier_validation_security.xml",
         # Data
         "data/cron_data.xml",
@@ -33,6 +33,9 @@
         "web.assets_backend": [
             "base_tier_validation/static/src/components/**/*",
             "base_tier_validation/static/src/js/**/*",
+        ],
+        "web.assets_unit_tests": [
+            "base_tier_validation/static/tests/**/*",
         ],
     },
 }

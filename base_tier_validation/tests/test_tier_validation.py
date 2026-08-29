@@ -652,7 +652,7 @@ class TierTierValidation(CommonTierValidation):
         test_record.with_user(self.test_user_1).request_validation()
         self.assertTrue(self.test_user_2.review_ids)
         # Revoke read access on the validated model for non-superadmin users.
-        self.env["ir.model.access"].search(
+        self.env["ir.access"].search(
             Domain("model_id", "=", self.tester_model.id)
         ).unlink()
         # Sanity check: a direct search now raises AccessError.
