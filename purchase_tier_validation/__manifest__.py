@@ -4,13 +4,13 @@
     "name": "Purchase Tier Validation",
     "summary": "Extends the functionality of Purchase Orders to "
     "support a tier validation process.",
-    "version": "19.0.1.0.0",
+    "version": "1.0",
     "category": "Purchases",
     "website": "https://github.com/OCA/tier-validation",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
-    "installable": False,
+    "installable": True,
     "depends": ["purchase", "base_tier_validation"],
     "data": ["views/purchase_order_view.xml"],
 }
