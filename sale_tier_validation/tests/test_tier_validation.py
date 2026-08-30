@@ -10,6 +10,12 @@ from odoo.addons.base.tests.common import BaseCommon
 
 @tagged("post_install", "-at_install")
 class TestSaleTierValidation(BaseCommon):
+    # These tests create tier.definition records and read/write sale.order
+    # directly through the implicit test env (without with_user()), so the
+    # test user needs unrestricted access rather than BaseCommon's default
+    # of only base.group_user.
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
