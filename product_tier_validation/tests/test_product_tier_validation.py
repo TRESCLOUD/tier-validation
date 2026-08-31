@@ -14,7 +14,7 @@ class TestProductTierValidation(TransactionCase):
             {
                 "name": "John",
                 "login": "test1",
-                "groups_id": [(6, 0, group_ids)],
+                "group_ids": [(6, 0, group_ids)],
                 "email": "test@examlple.com",
             }
         )
@@ -23,9 +23,7 @@ class TestProductTierValidation(TransactionCase):
         cls.normal_state = cls.env.ref("product_state.product_state_sellable")
 
     def test_tier_validation_model_name(self):
-        self.assertIn(
-            "product.template", self.tier_def_obj._get_tier_validation_model_names()
-        )
+        self.assertIn("product.template", self.tier_def_obj._get_tier_validation_model_names())
 
     def test_validation_product_template(self):
         product = self.env["product.template"].create(

@@ -9,6 +9,10 @@ class ProductTemplate(models.Model):
     _inherit = ["product.template", "tier.validation"]
     _tier_validation_manual_config = False
     _state_to = ["sellable"]
+    # product_state's header only has the statusbar field, no <button> to
+    # anchor after (base_tier_validation's default xpath); anchor on the
+    # last field instead so Request/Restart Validation still get injected.
+    _tier_validation_buttons_xpath = "/form/header/field[last()]"
 
     def write(self, vals):
         # Tier Validation does not work with Stages, only States :-(
