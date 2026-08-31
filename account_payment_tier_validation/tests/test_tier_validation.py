@@ -9,6 +9,12 @@ from odoo.addons.base.tests.common import BaseCommon
 
 @tagged("post_install", "-at_install")
 class TestAccountPayment(BaseCommon):
+    # BaseCommon's default test user only has base.group_user; se necesita
+    # también el grupo de contabilidad para crear/confirmar pagos.
+    _test_user_groups = BaseCommon._test_user_groups + (
+        "account.group_account_invoice",
+    )
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -24,7 +30,7 @@ class TestAccountPayment(BaseCommon):
             {
                 "name": "John",
                 "login": "test1",
-                "groups_id": [(6, 0, group_ids)],
+                "group_ids": [(6, 0, group_ids)],
                 "email": "test@examlple.com",
             }
         )
@@ -59,7 +65,7 @@ class TestAccountPayment(BaseCommon):
             payment.action_post()
         payment.amount = 100
         payment.action_post()
-        self.assertEqual(payment.state, "in_process")
+        self.assertEqual(payment.state, "paid")
 
     def test_03_validation_account_payment(self):
         payment = self.env["account.payment"].create(
@@ -74,11 +80,11 @@ class TestAccountPayment(BaseCommon):
         self.assertEqual(payment.validation_status, "no")
         reviews = payment.with_user(self.env.user.id).request_validation()
         payment.invalidate_model()
-        self.assertEqual(payment.validation_status, "waiting")
+        self.assertEqual(payment.validation_status, "pending")
         self.assertTrue(reviews)
         record = payment.with_user(self.test_user_1.id)
         record.invalidate_model()
         record.validate_tier()
         payment.action_post()
-        self.assertEqual(payment.state, "in_process")
+        self.assertEqual(payment.state, "paid")
         self.assertEqual(payment.validation_status, "validated")

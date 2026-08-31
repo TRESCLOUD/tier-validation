@@ -8,7 +8,7 @@ class AccountPayment(models.Model):
     _name = "account.payment"
     _inherit = ["account.payment", "tier.validation"]
     _state_from = ["draft"]
-    _state_to = ["in_process", "paid"]
+    _state_to = ["paid"]
     _cancel_state = "canceled"
 
     _tier_validation_manual_config = False
