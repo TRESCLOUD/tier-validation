@@ -323,7 +323,7 @@ msgstr "Campos"
 #. module: base_tier_validation
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__exclude_requester
 msgid "Four-eyes Principle"
-msgstr ""
+msgstr "Principio de cuatro ojos"
 
 #. module: base_tier_validation
 #. odoo-python
@@ -880,6 +880,13 @@ msgid ""
 "request. Only meaningful for review_type='group'; the form hides this field "
 "for the other review types."
 msgstr ""
+"Si está activo, el usuario que solicitó la validación se retira del grupo "
+"de revisores de este nivel. Cualquier otro miembro del grupo configurado "
+"puede validar, excepto el propio solicitante. Sin este indicador, un "
+"solicitante que pertenezca al mismo grupo que los revisores configurados "
+"puede autovalidar su propia solicitud. Solo tiene sentido cuando "
+"review_type='group'; el formulario oculta este campo para los demás tipos "
+"de revisión."
 
 #. module: base_tier_validation
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__account_move__validation_status__no
