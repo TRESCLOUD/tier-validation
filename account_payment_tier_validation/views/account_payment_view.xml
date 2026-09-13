@@ -5,7 +5,7 @@
         <field name="model">account.payment</field>
         <field name="inherit_id" ref="account.view_account_payment_search" />
         <field name="arch" type="xml">
-            <filter name="reconciled" position="after">
+            <filter name="outstanding" position="after">
                 <separator />
                 <filter
                     name="needs_review"
