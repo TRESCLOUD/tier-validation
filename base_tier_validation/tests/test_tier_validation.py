@@ -1304,12 +1304,14 @@ class TierTierValidation(CommonTierValidation):
         record.action_confirm()
         self.assertEqual(record.validation_status, "validated")
         # Unable to write test_validation_field after validation
-        with self.assertRaises(ValidationError):
-            # Simulate there are fields, but not test_validation_field
-            with mock.patch.object(TV, "_get_validation_exceptions", return_value=BEF):
-                self.test_record.with_user(self.test_user_2.id).write(
-                    {"test_validation_field": 3}
-                )
+        # Simulate there are fields, but not test_validation_field
+        with (
+            self.assertRaises(ValidationError),
+            mock.patch.object(TV, "_get_validation_exceptions", return_value=BEF),
+        ):
+            self.test_record.with_user(self.test_user_2.id).write(
+                {"test_validation_field": 3}
+            )
         # Able to write test_validation_field after validation
         with mock.patch.multiple(
             TV,
@@ -1325,14 +1327,16 @@ class TierTierValidation(CommonTierValidation):
     def test_28_computed_state_field(self):
         """Test the regular flow on a model where state is a computed field"""
         # The record cannot be confirmed without validation
-        with self.assertRaisesRegex(
-            ValidationError,
-            "This action needs to be validated",
+        with (
+            self.assertRaisesRegex(
+                ValidationError,
+                "This action needs to be validated",
+            ),
+            self.env.cr.savepoint(),
         ):
-            with self.env.cr.savepoint():
-                self.test_record_computed.action_confirm()
-                # Flush manually to trigger the _write
-                self.test_record_computed.flush_recordset()
+            self.test_record_computed.action_confirm()
+            # Flush manually to trigger the _write
+            self.test_record_computed.flush_recordset()
         self.assertEqual(self.test_record_computed.state, "draft")
         # The validation is performed -- the single review is auto-promoted
         # to ``pending`` so the reviewer can act on it.
@@ -1658,7 +1662,7 @@ class TierTierValidation(CommonTierValidation):
         self.assertFalse(new_user.review_ids.ids)
 
 
-@tagged("at_install")
+@tagged("at_install", "-post_install")
 class TierTierValidationView(CommonTierValidation):
     def test_view_manual(self):
         view = self.env[self.test_record._name].get_view(False, "form")

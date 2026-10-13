@@ -11,6 +11,8 @@ extend-select = [
     "UP",  # pyupgrade
 ]
 extend-safe-fixes = ["UP008"]
+# El ORM de Odoo espera listas en los atributos de clase (_inherit, _state_from...).
+ignore = ["RUF012"]
 exclude = ["setup/*"]
 
 [format]
