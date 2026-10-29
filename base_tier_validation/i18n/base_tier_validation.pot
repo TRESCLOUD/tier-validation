@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-28 15:27+0000\n"
+"PO-Revision-Date: 2026-10-28 15:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,7 +30,7 @@ msgstr ""
 #. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_validation_label
 msgid ""
-"<i class=\"fa fa-lg fa-thumbs-down\"/>\n"
+"<i class=\"oi oi-lg\" data-icon=\"thumb_down\"/>\n"
 "                Operation has been\n"
 "                <b>rejected</b>\n"
 "                ."
@@ -37,7 +39,7 @@ msgstr ""
 #. module: base_tier_validation
 #: model_terms:ir.ui.view,arch_db:base_tier_validation.tier_validation_label
 msgid ""
-"<i class=\"fa fa-lg fa-thumbs-up\"/>\n"
+"<i class=\"oi oi-lg\" data-icon=\"thumb_up\"/>\n"
 "                Operation has been\n"
 "                <b>validated</b>\n"
 "                !"
@@ -168,6 +170,11 @@ msgid ""
 msgstr ""
 
 #. module: base_tier_validation
+#: model:ir.module.module,shortdesc:base.module_base_tier_validation
+msgid "Base Tier Validation"
+msgstr ""
+
+#. module: base_tier_validation
 #: model:ir.model.fields,help:base_tier_validation.field_tier_definition__approve_sequence_bypass
 #: model:ir.model.fields,help:base_tier_validation.field_tier_review__approve_sequence_bypass
 msgid ""
@@ -259,6 +266,7 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/base_tier_validation/static/src/components/tier_review_widget/tier_review_widget.xml:0
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_definition__name
+#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__name
 msgid "Description"
 msgstr ""
 
@@ -381,6 +389,11 @@ msgid ""
 msgstr ""
 
 #. module: base_tier_validation
+#: model:ir.module.module,summary:base.module_base_tier_validation
+msgid "Implement a validation process based on tiers."
+msgstr ""
+
+#. module: base_tier_validation
 #: model_terms:ir.actions.act_window,help:base_tier_validation.tier_validation_exception_action
 msgid "It's fully validated"
 msgstr ""
@@ -430,7 +443,6 @@ msgid "More Options"
 msgstr ""
 
 #. module: base_tier_validation
-#: model:ir.model.fields,field_description:base_tier_validation.field_tier_review__name
 #: model:ir.model.fields,field_description:base_tier_validation.field_tier_validation_exception__name
 msgid "Name"
 msgstr ""
@@ -503,13 +515,23 @@ msgid ""
 msgstr ""
 
 #. module: base_tier_validation
+#. odoo-python
+#: code:addons/base_tier_validation/models/tier_validation.py:0
+msgid "Operation has been <b>rejected</b>."
+msgstr ""
+
+#. module: base_tier_validation
+#. odoo-python
+#: code:addons/base_tier_validation/models/tier_validation.py:0
+msgid "Operation has been <b>validated</b>!"
+msgstr ""
+
+#. module: base_tier_validation
 #. odoo-javascript
 #: code:addons/base_tier_validation/static/src/components/tier_review_menu/tier_review_menu.xml:0
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_move__validation_status__pending
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_order__validation_status__pending
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_request__validation_status__pending
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_payment__validation_status__pending
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__product_template__validation_status__pending
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__sale_order__validation_status__pending
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__stock_picking__validation_status__pending
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_review__status__pending
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_validation__validation_status__pending
 msgid "Pending"
@@ -526,11 +548,9 @@ msgid "Reject"
 msgstr ""
 
 #. module: base_tier_validation
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_move__validation_status__rejected
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_order__validation_status__rejected
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_request__validation_status__rejected
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_payment__validation_status__rejected
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__product_template__validation_status__rejected
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__sale_order__validation_status__rejected
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__stock_picking__validation_status__rejected
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_review__status__rejected
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_validation__validation_status__rejected
 msgid "Rejected"
@@ -773,11 +793,9 @@ msgid "Validate Reject"
 msgstr ""
 
 #. module: base_tier_validation
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_move__validation_status__validated
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_order__validation_status__validated
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_request__validation_status__validated
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_payment__validation_status__validated
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__product_template__validation_status__validated
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__sale_order__validation_status__validated
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__stock_picking__validation_status__validated
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_validation__validation_status__validated
 msgid "Validated"
 msgstr ""
@@ -822,11 +840,9 @@ msgid "Validations"
 msgstr ""
 
 #. module: base_tier_validation
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_move__validation_status__waiting
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_order__validation_status__waiting
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_request__validation_status__waiting
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_payment__validation_status__waiting
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__product_template__validation_status__waiting
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__sale_order__validation_status__waiting
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__stock_picking__validation_status__waiting
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_review__status__waiting
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_validation__validation_status__waiting
 msgid "Waiting"
@@ -844,11 +860,9 @@ msgid ""
 msgstr ""
 
 #. module: base_tier_validation
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_move__validation_status__no
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_order__validation_status__no
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__purchase_request__validation_status__no
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__account_payment__validation_status__no
+#: model:ir.model.fields.selection,name:base_tier_validation.selection__product_template__validation_status__no
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__sale_order__validation_status__no
-#: model:ir.model.fields.selection,name:base_tier_validation.selection__stock_picking__validation_status__no
 #: model:ir.model.fields.selection,name:base_tier_validation.selection__tier_validation__validation_status__no
 msgid "Without validation"
 msgstr ""
