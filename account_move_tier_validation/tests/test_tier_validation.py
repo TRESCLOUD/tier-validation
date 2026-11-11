@@ -12,10 +12,11 @@ from odoo.addons.base.tests.common import BaseCommon
 @tagged("post_install", "-at_install")
 class TestAccountTierValidation(BaseCommon):
     # El usuario de prueba de BaseCommon solo tiene base.group_user; los tests
-    # crean tier.definition y facturas directamente con el env implícito.
-    _test_user_groups = (
-        "base.group_system",
-        "account.group_account_manager",
+    # crean tier.definition, productos y facturas con el env implícito.
+    _test_user_groups = BaseCommon._test_user_groups + (
+        "base.group_erp_manager",
+        "account.group_account_invoice",
+        "product.group_product_manager",
     )
 
     @classmethod
